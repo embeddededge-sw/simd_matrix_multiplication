@@ -1,0 +1,21 @@
+Understanding the Matrix Size Notation
+The notation 1024 × 1024 × 1024 represents the dimensions of the matrix multiplication:
+
+C[M][N] = A[M][K] × B[K][N]
+Where:
+
+M = 1024 = Number of rows in matrix A and C
+
+K = 1024 = Number of columns in A and rows in B (the "inner" dimension)
+
+N = 1024 = Number of columns in matrix B and C
+
+So 1024 × 1024 × 1024 means:
+
+Matrix A: 1024 × 1024
+
+Matrix B: 1024 × 1024
+
+Matrix C: 1024 × 1024
+
+This is a square matrix multiplication where M = N = K = 1024.
