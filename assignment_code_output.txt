@@ -1,0 +1,78 @@
+####Code compilation
+gcc -O3 -march=native assignement_final_code_22JUl_11pm.c -lm -o assignment_bin_23jul7am
+
+#### Running the compiled binary
+./assignment_bin_23jul7am 
+
+==================================================
+SIMD Matrix Multiplication - Performance Analysis
+==================================================
+
+Testing 16x16x16...
+  Validation results (tolerance = 0.010000):
+  SIMD Optimized: PASS (max diff: 0.000000, avg diff: 0.000011)
+  Blocked SIMD: PASS (max diff: 0.000000, avg diff: 0.000011)
+  ✓ All implementations PASSED for 16x16
+
+Testing 32x32x32...
+  Validation results (tolerance = 0.010000):
+  SIMD Optimized: PASS (max diff: 0.000000, avg diff: 0.000021)
+  Blocked SIMD: PASS (max diff: 0.000000, avg diff: 0.000021)
+  ✓ All implementations PASSED for 32x32
+
+Testing 64x64x64...
+  Validation results (tolerance = 0.010000):
+  SIMD Optimized: PASS (max diff: 0.000000, avg diff: 0.000037)
+  Blocked SIMD: PASS (max diff: 0.000000, avg diff: 0.000037)
+  ✓ All implementations PASSED for 64x64
+
+Testing 128x128x128...
+  Validation results (tolerance = 0.010000):
+  SIMD Optimized: PASS (max diff: 0.000000, avg diff: 0.000060)
+  Blocked SIMD: PASS (max diff: 0.000000, avg diff: 0.000060)
+  ✓ All implementations PASSED for 128x128
+
+
+==================================================
+PERFORMANCE BENCHMARK (1024x1024)
+==================================================
+
+Matrix Size: 1024 x 1024 x 1024
+Note: Results validated with tolerance of 0.01
+
+Naive:      3268516188 ns (3.268516 s),   0.66 GFlops
+SIMD Opt:    87239032 ns (0.087239 s),  24.62 GFlops
+Blocked:     95891354 ns (0.095891 s),  22.39 GFlops
+
+Validation Results (1024x1024) - tolerance = 0.010000:
+  SIMD Optimized: PASS (max diff: 0.000000, avg diff: 0.000119)
+  Blocked SIMD: PASS (max diff: 0.000000, avg diff: 0.000119)
+
+==================================================
+PERFORMANCE SUMMARY
+==================================================
+Implementation    | Time (s) | GFlops/s | Speedup
+------------------|----------|----------|--------
+Naive Baseline    | 3.268516 |   0.66   | 1.00x
+SIMD Optimized    | 0.087239 |  24.62   |  37.47x ✓ GOOD
+Blocked SIMD      | 0.095891 |  22.39   |  34.09x ✓ EXCELLENT (>2x)
+
+==================================================
+OPTIMIZATION TECHNIQUES USED
+==================================================
+1. SIMD Vectorization: AVX2 intrinsics (8-wide single-precision)
+2. FMA Instructions: _mm256_fmadd_ps for fused multiply-add
+3. Loop Ordering: i-k-j for better cache locality
+4. Cache Blocking: Block size of 64 for L1 cache optimization
+5. Memory Alignment: 32-byte aligned allocations
+6. Compiler Optimization: -O3 -march=native flags
+
+==================================================
+KEY OBSERVATIONS
+==================================================
+• SIMD Optimized achieves 37.47x speedup over baseline
+• Blocked SIMD achieves 34.09x speedup over baseline
+• Both implementations exceed the 2x threshold (EXCELLENT)
+• SIMD Optimized is 1.10x faster than Blocked SIMD
+• Floating-point differences are within tolerance (0.01)
+• Validation PASSED for all matrix sizes
