@@ -1,7 +1,6 @@
 /*
  * csl_540_assignment_code.c
- * M.Tech GPU Course Assignment: SIMD Matrix Multiplication
- * Compile: g++ -O3 -march=native -o run csl_540_assignment_code.c
+ * SIMD Matrix Multiplication
  */
 
 #include <stdio.h>
