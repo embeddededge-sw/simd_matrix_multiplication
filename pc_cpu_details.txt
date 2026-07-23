@@ -1,0 +1,17 @@
+Processor: 13th Gen Intel(R) Core(TM) i5-13420H
+
+Architecture: x86_64
+
+Physical Cores: 8
+
+Logical Cores: 12 (2 threads per core)
+
+Base Frequency: 4600 MHz (max)
+
+L1 Cache: 320 KiB (data) + 384 KiB (instruction)
+
+L2 Cache: 7 MiB
+
+L3 Cache: 12 MiB
+
+SIMD Extensions: SSE, SSE2, SSE3, SSE4.1, SSE4.2, AVX, AVX2, AVX-VNNI, FMA
